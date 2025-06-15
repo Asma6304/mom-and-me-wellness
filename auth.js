@@ -1,8 +1,11 @@
 // auth.js
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+const auth = getAuth();
 
 // SIGNUP
-function signup(email, password) {
-  auth.createUserWithEmailAndPassword(email, password)
+export function signup(email, password) {
+  createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       alert("Signup successful!");
     })
@@ -11,18 +14,17 @@ function signup(email, password) {
     });
 }
 
-function login(email, password) {
-  console.log("Login function called"); // Debug line
-  alert("Login attempt starting...");   // Visible check
-
+// LOGIN
+export function login(email, password) {
+  console.log("Login function called"); // Debug
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      console.log("Login successful");  // Debug log
+      console.log("Login successful");
       alert("Login successful!");
       window.location.href = "index.html";
     })
     .catch((error) => {
-      console.error("Login failed", error);  // Log actual error
+      console.error("Login failed", error);
       alert("Login failed: " + error.message);
     });
 }
