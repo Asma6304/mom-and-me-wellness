@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -155,7 +155,8 @@
 <script type="module">
   import { login } from './auth.js';
 
-  document.getElementById("loginForm").addEventListener("submit", function(e) {
+  const form = document.getElementById("loginForm");
+   form.addEventListener("submit", function(e) {
     e.preventDefault();
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
