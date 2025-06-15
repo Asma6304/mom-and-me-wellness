@@ -12,16 +12,17 @@ function signup(email, password) {
 }
 
 function login(email, password) {
+  console.log("Login function called"); // Debug line
+  alert("Login attempt starting...");   // Visible check
+
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // ✅ Login successful
+      console.log("Login successful");  // Debug log
       alert("Login successful!");
-      // ✅ Redirect to index.html (homepage)
       window.location.href = "index.html";
     })
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      alert("Login failed: " + errorMessage);
+      console.error("Login failed", error);  // Log actual error
+      alert("Login failed: " + error.message);
     });
-}s
+}
