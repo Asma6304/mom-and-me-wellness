@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consult A Doctor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffb6c1, #d8bfd8);
+            min-height: 100vh;
+        }
+        .doctor-info {
+            margin-top: 20mm;
+        }
+    </style>
+</head>
+<body class="p-4">
+    <!-- Back Button -->
+    <a href="index.html" class="absolute top-4 left-4 bg-pink-500 text-white p-2 rounded-full hover:bg-blue-600 transition-colors">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <div class="flex flex-col items-center justify-center min-h-screen">
+        <!-- Page Title -->
+        <h1 class="text-3xl font-bold text-black mb-8 text-center">Consult A Doctor</h1>
+        
+        <!-- Doctor Image -->
+        <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=500&auto=format&fit=crop" 
+             alt="AI Doctor" 
+             class="w-48 h-48 rounded-full object-cover border-4 border-white shadow-lg">
+        
+        <!-- Doctor Information -->
+        <div class="doctor-info bg-white p-6 rounded-lg shadow-md max-w-md w-full mt-8">
+            <div class="space-y-3 text-black font-bold">
+                <p class="text-lg"><span class="text-gray-700">NAME:</span> Simra Patel</p>
+                <p class="text-lg"><span class="text-gray-700">Age:</span> 32 years</p>
+                <p class="text-lg"><span class="text-gray-700">Education Background:</span> MBBS, PhD in Gynacologist</p>
+                <p class="text-lg"><span class="text-gray-700">Experience:</span> 5 Years</p>
+                <p class="text-lg"><span class="text-gray-700">Contact Number:</span> +91 7865982345</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

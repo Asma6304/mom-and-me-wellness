@@ -1,0 +1,227 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregnancy Information Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-roboto">
+    <a href="index.html" class="absolute top-4 left-4 bg-gray-800 p-2 rounded-full text-white hover:bg-gray-900 text-xl shadow-lg z-50">
+  <i class="fas fa-arrow-left"></i>
+</a>
+
+    <div class="container mx-auto p-4">
+        <h1 class="text-3xl font-bold text-center mb-6">Pregnancy Information Form</h1>
+        <form id="pregnancyForm" class="bg-white p-6 rounded-lg shadow-lg">
+            <div class="mb-4">
+                <label for="name" class="block text-gray-700 font-bold mb-2">Name</label>
+                <input type="text" id="name" name="name" class="w-full p-2 border border-gray-300 rounded-lg" required>
+            </div>
+            <div class="mb-4">
+                <label for="age" class="block text-gray-700 font-bold mb-2">Age</label>
+                <select id="age" name="age" class="w-full p-2 border border-gray-300 rounded-lg" required>
+                    <option value="18-21">18-21</option>
+                    <option value="22-27">22-27</option>
+                    <option value="28-36">28-36</option>
+                    <option value="37-42">37-42</option>
+                    <option value="43 and above">43 and above</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="country" class="block text-gray-700 font-bold mb-2">Country/City</label>
+                <select id="country" name="country" class="w-full p-2 border border-gray-300 rounded-lg" required>
+                    <option value="India">India</option>
+                    <option value="Pakistan">Pakistan</option>
+                    <option value="China">China</option>
+                    <option value="Saudi Arabia">Saudi Arabia</option>
+                    <option value="America">America</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="height" class="block text-gray-700 font-bold mb-2">Height</label>
+                <input type="text" id="height" name="height" class="w-full p-2 border border-gray-300 rounded-lg" required>
+            </div>
+            <div class="mb-4">
+                <label for="weight" class="block text-gray-700 font-bold mb-2">Weight</label>
+                <input type="text" id="weight" name="weight" class="w-full p-2 border border-gray-300 rounded-lg" required>
+            </div>
+            <div class="mb-4">
+                <label for="month" class="block text-gray-700 font-bold mb-2">Month of Pregnancy</label>
+                <select id="month" name="month" class="w-full p-2 border border-gray-300 rounded-lg" required>
+                    <option value="0-2">0-2</option>
+                    <option value="3-4">3-4</option>
+                    <option value="5-6">5-6</option>
+                    <option value="7-8">7-8</option>
+                    <option value="9">9</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="allergies" class="block text-gray-700 font-bold mb-2">Allergies (if any)</label>
+                <input type="text" id="allergies" name="allergies" class="w-full p-2 border border-gray-300 rounded-lg">
+            </div>
+            <div class="text-center">
+                <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700">Submit</button>
+            </div>
+        </form>
+        <div id="result" class="mt-6 p-6 bg-white rounded-lg shadow-lg hidden">
+            <h2 class="text-2xl font-bold mb-4">Your Pregnancy Information</h2>
+            <div id="ageInfo" class="mb-4"></div>
+            <div id="countryInfo" class="mb-4"></div>
+            <div id="monthInfo" class="mb-4"></div>
+            <p class="text-pink-500 font-bold text-center text-xl">THE MOMENT A CHILD IS BORN, THE MOTHER IS ALSO BORN</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('pregnancyForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const age = document.getElementById('age').value;
+            const country = document.getElementById('country').value;
+            const month = document.getElementById('month').value;
+
+            let ageInfo = '';
+            let countryInfo = '';
+            let monthInfo = '';
+
+            switch (age) {
+                case '18-21':
+                    ageInfo = `
+                        <h3 class="text-xl font-bold">Age: 18-21 Years</h3>
+                        <p>Immunity: Generally robust as the immune system is still in its prime. Younger women often have a quicker recovery from infections but may be more susceptible to illnesses if they lack proper nutrition or prenatal care.</p>
+                        <p>Strength: Physical resilience tends to be high, but lack of awareness about prenatal health can lead to deficiencies in iron, folic acid, or other vital nutrients, potentially affecting energy levels.</p>
+                    `;
+                    break;
+                case '22-27':
+                    ageInfo = `
+                        <h3 class="text-xl font-bold">Age: 22-27 Years</h3>
+                        <p>Immunity: Still strong, provided the woman is in good health. This age group is often optimal for pregnancy due to better overall health and fewer chronic conditions.</p>
+                        <p>Strength: Higher stamina and physical strength, making it easier to manage pregnancy-related fatigue. Proper prenatal care usually helps maintain immunity and strength.</p>
+                    `;
+                    break;
+                case '28-36':
+                    ageInfo = `
+                        <h3 class="text-xl font-bold">Age: 28-36 Years</h3>
+                        <p>Immunity: Slight decline in immune efficiency may start, but generally manageable with a healthy lifestyle and prenatal care. Risk of autoimmune conditions might slightly increase.</p>
+                        <p>Strength: Physical strength is good, but energy levels might require more conscious management through balanced nutrition and exercise. Risk of complications like gestational diabetes or hypertension begins to increase.</p>
+                    `;
+                    break;
+                case '37-42':
+                    ageInfo = `
+                        <h3 class="text-xl font-bold">Age: 37-42 Years</h3>
+                        <p>Immunity: A more noticeable decline in immune response due to age, making infections harder to fend off. Conditions like thyroid disorders or autoimmune diseases might also be more prevalent.</p>
+                        <p>Strength: Strength and energy levels might be lower due to natural aging and lifestyle factors. Risk of pregnancy complications like preeclampsia or gestational diabetes increases.</p>
+                    `;
+                    break;
+                case '43 and above':
+                    ageInfo = `
+                        <h3 class="text-xl font-bold">Age: 43 Years and Above</h3>
+                        <p>Immunity: Immune function is reduced significantly, and women are more susceptible to infections and chronic conditions. Healing and recovery times are longer.</p>
+                        <p>Strength: Physical resilience is lower, and fatigue is more pronounced. The risk of complications, including preterm labor, chromosomal abnormalities in the baby, and maternal health issues, is significantly higher.</p>
+                    `;
+                    break;
+            }
+
+            switch (country) {
+                case 'India':
+                    countryInfo = `
+                        <h3 class="text-xl font-bold">Country: India</h3>
+                        <p>Summer: Stay hydrated, avoid heat, and eat light meals with seasonal fruits.</p>
+                        <p>Winter: Stay warm, moisturize skin, and include nutrient-dense foods.</p>
+                        <p>Autumn: Manage allergies and include seasonal fruits like guava and pomegranate.</p>
+                    `;
+                    break;
+                case 'Pakistan':
+                    countryInfo = `
+                        <h3 class="text-xl font-bold">Country: Pakistan</h3>
+                        <p>Similar to India's guidance for all seasons with a focus on clean water and warm teas.</p>
+                    `;
+                    break;
+                case 'China':
+                    countryInfo = `
+                        <h3 class="text-xl font-bold">Country: China</h3>
+                        <p>Summer: Avoid outdoor activities during high humidity, and opt for air-conditioned spaces.</p>
+                        <p>Winter: Include warm soups and use humidifiers.</p>
+                        <p>Autumn: Seasonal fruits like pears and apples are encouraged for hydration.</p>
+                    `;
+                    break;
+                case 'Saudi Arabia':
+                    countryInfo = `
+                        <h3 class="text-xl font-bold">Country: Saudi Arabia</h3>
+                        <p>Summer: Consume up to 3 liters of water daily and stay indoors.</p>
+                        <p>Winter: Consume warm beverages and ensure ventilation.</p>
+                        <p>Autumn: Avoid dust storms and monitor hydration levels.</p>
+                    `;
+                    break;
+                case 'America':
+                    countryInfo = `
+                        <h3 class="text-xl font-bold">Country: America</h3>
+                        <p>Summer: Stay hydrated and monitor for heat exhaustion.</p>
+                        <p>Winter: Wear insulated clothing and prevent slips on icy surfaces.</p>
+                        <p>Autumn: Manage allergies and include seasonal foods like pumpkins.</p>
+                    `;
+                    break;
+            }
+
+            switch (month) {
+                case '0-2':
+                    monthInfo = `
+                        <h3 class="text-xl font-bold">Month: 0-2 Months</h3>
+                        <p>Start regular prenatal check-ups.</p>
+                        <p>Take prescribed vitamins and manage nausea with small meals.</p>
+                        <p>Avoid smoking, alcohol, and heavy objects.</p>
+                    `;
+                    break;
+                case '3-4':
+                    monthInfo = `
+                        <h3 class="text-xl font-bold">Month: 3-4 Months</h3>
+                        <p>Gradually increase calorie intake and engage in light prenatal exercises.</p>
+                        <p>Avoid raw foods and prioritize dental care.</p>
+                    `;
+                    break;
+                case '5-6':
+                    monthInfo = `
+                        <h3 class="text-xl font-bold">Month: 5-6 Months</h3>
+                        <p>Watch for early signs of preterm labor and focus on posture.</p>
+                        <p>Avoid lying flat for long periods.</p>
+                    `;
+                    break;
+                case '7-8':
+                    monthInfo = `
+                        <h3 class="text-xl font-bold">Month: 7-8 Months</h3>
+                        <p>Monitor fetal movements and pack your hospital bag.</p>
+                        <p>Avoid salty foods and strenuous activities.</p>
+                    `;
+                    break;
+                case '9':
+                    monthInfo = `
+                        <h3 class="text-xl font-bold">Month: 9 Months</h3>
+                        <p>Focus on labor preparation and postpartum care.</p>
+                        <p>Stay hydrated and eat high-fiber foods.</p>
+                    `;
+                    break;
+            }
+
+            document.getElementById('ageInfo').innerHTML = ageInfo;
+            document.getElementById('countryInfo').innerHTML = countryInfo;
+            document.getElementById('monthInfo').innerHTML = monthInfo;
+
+            document.getElementById('result').classList.remove('hidden');
+        });
+    </script>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const name = sessionStorage.getItem("userName");
+    const email = sessionStorage.getItem("userEmail");
+
+    if (name) {
+      document.getElementById("name").value = name;
+    }
+    // If you have email field and want to use it, do the same
+  });
+</script>
+
+</body>
+</html>

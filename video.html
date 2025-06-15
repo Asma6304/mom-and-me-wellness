@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Tutorials</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffb6c1, #ffc0cb);
+            min-height: 100vh;
+        }
+        .video-container {
+            aspect-ratio: 16 / 9;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <!-- Back Button -->
+    <a href="index.html" class="absolute top-6 left-6 bg-pink-500 hover:bg-pink-600 text-white p-3 rounded-full shadow-lg transition-all">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <!-- Page Title -->
+    <h1 class="text-3xl md:text-4xl font-bold text-center text-black mt-4 mb-8 md:mb-12">Video Tutorials</h1>
+
+    <!-- Videos Section -->
+    <div class="max-w-4xl mx-auto space-y-10 md:space-y-12">
+        <!-- Hindi Video -->
+        <div class="bg-white rounded-xl shadow-xl overflow-hidden">
+            <div class="video-container">
+                <iframe class="w-full h-full" src="https://www.youtube.com/embed/L19CaJq7qVE" 
+                        title="Hindi Tutorial" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+            <div class="p-4 bg-pink-500 text-center">
+                <p class="text-white font-medium">Hindi Language</p>
+                <p class="text-white text-sm mt-1">"This tutorial is in Hindi to help mothers who are more comfortable in the Hindi language."</p>
+            </div>
+        </div>
+
+        <!-- Telugu Video -->
+        <div class="bg-white rounded-xl shadow-xl overflow-hidden">
+            <div class="video-container">
+                <iframe class="w-full h-full" src="https://www.youtube.com/embed/6nZVSZ2-S5w" 
+                        title="Telugu Tutorial" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+            <div class="p-4 bg-pink-500 text-center">
+                <p class="text-white font-medium">Telugu Language</p>
+                <p class="text-white text-sm mt-1">"This video is in Telugu for Telugu-speaking moms."</p>
+            </div>
+        </div>
+
+        <!-- English Video -->
+        <div class="bg-white rounded-xl shadow-xl overflow-hidden">
+            <div class="video-container">
+                <iframe class="w-full h-full" src="https://www.youtube.com/embed/rlfozkCy8jw" 
+                        title="English Tutorial" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+            <div class="p-4 bg-pink-500 text-center">
+                <p class="text-white font-medium">English Language</p>
+                <p class="text-white text-sm mt-1">"This English tutorial covers wellness and care for all moms."</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

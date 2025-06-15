@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Mom and Me Wellness</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #db8db7;
+        position: relative;
+        overflow: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: url('https://wallpapersok.com/uploads/posts/2022-09/1663793375_3.webp') no-repeat center center;
+        background-size: cover;
+        opacity: 0.15;
+        z-index: -1;
+        filter: brightness(1.2);
+      }
+
+      .title-animate {
+        animation: fadeInSlide 1.2s ease-out forwards;
+      }
+
+      @keyframes fadeInSlide {
+        0% {
+          opacity: 0;
+          transform: translateY(-30px) scale(0.95);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .custom-title {
+        font-family: 'Playfair Display', serif;
+      }
+
+      .logo-round {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        border: 5px solid #f194ca;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen relative text-white">
+    
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden" onclick="closeSidebar()"></div>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="fixed top-0 left-0 w-64 h-full bg-black text-white transform -translate-x-full transition-transform duration-300 z-50 p-6 space-y-6">
+      <h2 class="text-xl font-bold mb-4">Menu</h2>
+      <a href="about.html" class="block hover:text-pink-400">About Me</a>
+      <a href="mp.html" class="block hover:text-pink-400">Maternal Approaches</a>
+      <a href="video.html" class="block hover:text-pink-400">Video Tutorials</a>
+      <a href="consult.html" class="block hover:text-pink-400">Consult a Doctor</a>
+      <a href="excerices.html" class="block hover:text-pink-400">Exercise</a>
+    </div>
+
+    <!-- Top Navbar -->
+    <div class="flex justify-between items-center px-6 py-4 z-10 relative">
+      <!-- Hamburger -->
+      <button onclick="toggleSidebar()" class="text-white text-2xl">
+        &#9776;
+      </button>
+
+      <!-- Login/SignUp -->
+      <div class="space-x-4">
+        <a href="login.html" class="border border-pink-400 px-4 py-1 rounded hover:bg-pink-700">Login</a>
+        <a href="singup.html" class="border border-pink-400 px-4 py-1 rounded hover:bg-pink-700">Sign Up</a>
+      </div>
+    </div>
+
+    <!-- Center Content -->
+    <div class="flex flex-col items-center justify-center text-center mt-20 px-4 space-y-6 relative z-0">
+      <!-- Round Mom & Child Logo -->
+      <img src="/image mom.jpg" alt="mother holding baby" class="logo-round mb-4 mx-auto" />
+
+      <h1 class="text-6xl font-bold tracking-wider custom-title title-animate">MOM AND ME WELLNESS</h1>
+      <p class="italic text-lg text-pink-100">
+        Support for young moms through care, connection, and guidance.
+      </p>
+    </div>
+
+    <!-- JS -->
+    <script>
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+        sidebar.classList.toggle("-translate-x-full");
+        overlay.classList.toggle("hidden");
+      }
+
+      function closeSidebar() {
+        document.getElementById("sidebar").classList.add("-translate-x-full");
+        document.getElementById("overlay").classList.add("hidden");
+      }
+    </script>
+  </body>
+</html>
