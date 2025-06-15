@@ -1,12 +1,17 @@
 // auth.js
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 const auth = getAuth();
 
-// SIGNUP
+// Signup Function (you already used it once, now you focus on login)
 export function signup(email, password) {
   createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
+    .then(() => {
       alert("Signup successful!");
     })
     .catch((error) => {
@@ -14,17 +19,17 @@ export function signup(email, password) {
     });
 }
 
-// LOGIN
+// Login Function
 export function login(email, password) {
-  console.log("Login function called"); // Debug
   signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      console.log("Login successful");
+    .then(() => {
       alert("Login successful!");
-      window.location.href = "index.html";
+      // Redirect after alert is closed
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 100); // slight delay so alert shows
     })
     .catch((error) => {
-      console.error("Login failed", error);
       alert("Login failed: " + error.message);
     });
 }
