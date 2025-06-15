@@ -11,13 +11,17 @@ function signup(email, password) {
     });
 }
 
-// LOGIN
 function login(email, password) {
-  auth.signInWithEmailAndPassword(email, password)
+  signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
+      // ✅ Login successful
       alert("Login successful!");
+      // ✅ Redirect to index.html (homepage)
+      window.location.href = "index.html";
     })
     .catch((error) => {
-      alert("Login error: " + error.message);
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert("Login failed: " + errorMessage);
     });
-}
+}s
